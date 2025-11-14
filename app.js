@@ -7,23 +7,25 @@ button.addEventListener('click', guessCorrect);
 function guessCorrect(){
     let inputGuess = parseInt(input.value);
     let attempts = 0;
-    let randomNum = randomNumGen();
+    let randomNum = randomGen();
+    
+    console.log(randomNum);
+
     if (inputGuess > randomNum){
         guess.textContent = "Too High";
         attempts++;
     }if(inputGuess < randomNum){
-        guess.textContent = "Too Low";
+        guess.innerHTML = "Too Low";
         attempts++;
-    }if(){
-        
+    }if(inputGuess == randomNum){
+        guess.innerHTML = `Congrats! You guessed the number in ${attempts} attempts`;
     }
     else{
-        guess.textContent = "input a number between 1 and 100";
+        guess.innerHTML = "input a number between 1 and 100";
     }
 
 }
 
-function randomNumGen(){
-    max = 101;
-    Math.floor(Math.random() * max);
+function randomGen(){
+    return Math.floor(Math.random() * 100)+1;
 }
