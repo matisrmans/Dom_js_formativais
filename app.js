@@ -20,6 +20,8 @@ function guessCorrect(){
         attempts++;
     }if(inputGuess == randomNum){
         guess.innerHTML = `Congrats! You guessed the number in ${attempts} attempts`;
+        saveHistory();
+        
     }
     if(inputGuess > 100){
         guess.innerHTML = "input a number between 1 and 100";
@@ -33,5 +35,7 @@ function randomGen(){
 }
 
 function saveHistory(){
-    
+    const li = document.createElement('li');
+    li.textContent = "attempts: " + attempts;
+    history.appendChild(li);
 }
